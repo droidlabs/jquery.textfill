@@ -27,7 +27,7 @@
 			  if (options.lineHeight) {
 			    lineHeight = options.lineHeight;
 			  } else {
-			    var lineHeightTmp = parseInt($helper.css('line-height'), 10)
+			    var lineHeightTmp = parseFloat($helper.css('line-height'), 10)
 			    lineHeight = lineHeightTmp > 3 ? lineHeightTmp : fontSize * lineHeightTmp;
 			  }
 			  maxHeight = options.height || (lineHeight + 2);
