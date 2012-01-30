@@ -15,15 +15,23 @@
 			    fontSize = options.maxFontSize,
 			    width = options.width || $text.width(),
 			    maxWidth = width * (options.percent / 100) - 5,
-			    textWidth, textHeight, maxHeight;
+			    textWidth, textHeight, maxHeight, lineHeight;
 			if (!$helper.length) {
-			  $helper = $('<span>', {'class': 'textfill-helper'});
+			  $helper = $('<span>', {'class': 'textfill-helper-' + options.innerTag});
 			  $helper.css({position: 'absolute', visibility: 'hidden'})
 			  $helper.insertAfter($text);
 			}
-			$helper.html($text.html())
+			$helper.html($text.html());
 			do {
-			  maxHeight = options.height || (options.lineHeight || parseInt($helper.css('line-height'), 10) + 2);
+			  // calculate max height
+			  if (options.lineHeight) {
+			    lineHeight = options.lineHeight;
+			  } else {
+			    var lineHeightTmp = parseInt($helper.css('line-height'), 10)
+			    lineHeight = lineHeightTmp > 3 ? lineHeightTmp : fontSize * lineHeightTmp;
+			  }
+			  maxHeight = options.height || (lineHeight + 2);
+			  // calculate font-size
 				$helper.css('font-size', fontSize);
 				textWidth = $helper.width();
 				textHeight = $helper.height();
