@@ -1,0 +1,5 @@
+== Usage
+  $('#text-fill').textfill({
+    innerTag: 'h2',
+    percent: 80
+  })
