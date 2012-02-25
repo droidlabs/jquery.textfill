@@ -1,3 +1,9 @@
+#
+# jQuery Textfill Plugin
+# https://github.com/droidlabs/jquery.textfill
+# Copyright (c) 2011-2012 Droid Labs
+# Licenced under [MIT](http://www.opensource.org/licenses/mit-license.php).
+#
 (($) ->
   $.fn.textfill = (options) ->
     defaults =
